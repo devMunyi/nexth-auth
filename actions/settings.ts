@@ -7,7 +7,7 @@ import { sendVerificationEmail } from "@/lib/mail";
 import { generateVerificationToken } from "@/lib/tokens";
 import { SettingsSchema } from "@/schemas";
 import { z } from "zod";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 export async function settings(values: z.infer<typeof SettingsSchema>) {
   const validatedFields = SettingsSchema.safeParse(values);
