@@ -20,7 +20,7 @@ export default function Home() {
         </p>
 
         <div className="text-center">
-          <LoginButton mode="redirect">
+          <LoginButton mode="modal" asChild>
             <Button variant="secondary" size="lg">
               Sign In
             </Button>

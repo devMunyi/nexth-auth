@@ -7,6 +7,13 @@ type LoginButtonProps = {
   mode?: "modal" | "redirect";
   asChild?: boolean;
 };
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import LoginForm from "@/components/auth/login-form";
 
 export default function LoginButton({
   children,
@@ -15,11 +22,24 @@ export default function LoginButton({
 }: LoginButtonProps) {
   const router = useRouter();
   const onClick = () => {
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   if (mode === "modal") {
-    return <span>TODO: Implement modal</span>;
+    return (
+      <Dialog>
+        <DialogTitle
+          aria-readonly="true"
+          className="text-lg font-semibold hidden"
+        >
+          Sign in Button
+        </DialogTitle>
+        <DialogTrigger asChild={asChild}>{children}</DialogTrigger>
+        <DialogContent className="p-0 w-auto bg-transparent border-none">
+          <LoginForm />
+        </DialogContent>
+      </Dialog>
+    );
   }
 
   return (
